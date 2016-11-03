@@ -1,4 +1,5 @@
 #include <stddef.h>
+#include "bm.h"
 
 typedef long WORD;
 #define W sizeof(WORD) /* must be a power of 2 */
