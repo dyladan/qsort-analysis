@@ -4,9 +4,9 @@ test: main.o bm.o
 .PHONY: data
 data: 2dchar 3dchar 2ddouble 3ddouble 2dint 3dint 2dull 3dull
 	./2dchar >   plots/data/2d/char.dat
-#	./2ddouble > plots/data/2d/double.dat
-#	./2dint >    plots/data/2d/int.dat
-#	./2dull >    plots/data/2d/ull.dat
+	./2ddouble > plots/data/2d/double.dat
+	./2dint >    plots/data/2d/int.dat
+	./2dull >    plots/data/2d/ull.dat
 	./3dchar >   plots/data/3d/char.dat
 	./3ddouble > plots/data/3d/double.dat
 	./3dint >    plots/data/3d/int.dat
