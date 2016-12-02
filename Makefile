@@ -1,12 +1,12 @@
-test: main.o bm.o
-	cc -o test -Ofast -g main.o bm.o
-
-.PHONY: data
-data: 2dchar 3dchar 2ddouble 3ddouble 2dint 3dint 2dull 3dull
+.PHONY: 2data
+2data: 2dchar 2ddouble 2dint 2dull
 	./2dchar >   plots/data/2d/char.dat
 	./2ddouble > plots/data/2d/double.dat
 	./2dint >    plots/data/2d/int.dat
 	./2dull >    plots/data/2d/ull.dat
+
+.PHONY: 3data
+3data: 3dchar 3ddouble 3dint 3dull
 	./3dchar >   plots/data/3d/char.dat
 	./3ddouble > plots/data/3d/double.dat
 	./3dint >    plots/data/3d/int.dat
@@ -45,14 +45,15 @@ bm.o:
 
 .PHONY: clean
 clean:
-	rm *.o test 2dchar 3dchar 2ddouble 3ddouble 2dint 3dint 2dull 3dull
+	rm *.o 2dchar 3dchar 2ddouble 3ddouble 2dint 3dint 2dull 3dull
 
-
-run: test
-	./test
 
 .PHONY: charts
 charts:
+	cd plots && gnuplot -e "set term svg" 2d.p #3d.p
+
+.PHONY: 3dcharts
+3dcharts:
 	cd plots && gnuplot -e "set term svg" 2d.p #3d.p
 
 .PHONY: debug
